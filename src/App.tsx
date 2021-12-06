@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+
+// import Header from "./components/Header";
+// import Body from "./components/Body";
+// import Text from "./components/Text";
+// import ClassComponent from './components/ClassComponent';
 
 function App() {
-  return (
-    <div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // const [isView, setIsView] = React.useState(true);
+
+  return <div className="block">
+      <BrowserRouter>
+        <Link to="/">На главную</Link>
+        <Link to="/news">На новости</Link>
+        <Link to="/about">О сайте</Link>
+        <hr/>
+        <Routes>
+          <Route path="/" element={<div>Главная</div>} />
+          <Route path="/news" element={<div>Новости</div>} />
+          <Route path="/about" element={<div>О сайте</div>} />
+        </Routes>
+      </BrowserRouter>
+    </div>;
 }
+
 
 export default App;
